@@ -51,7 +51,7 @@
 
 <script>
   // 👇 ඔබේ Firebase Database URL එක මෙතන දාන්න (අගට / නැතිව)
-  const DB_URL = "https://ledblink-99ee8-default-rtdb.asia-southeast1.firebasedatabase.app";
+  const DB_URL = " ";
 
   const btn = document.getElementById("btn");
   const statusEl = document.getElementById("status");
