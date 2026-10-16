@@ -189,3 +189,54 @@ led-web
       └── index.html
 
 firebase.json නැත්නම් firebase init hosting කරලා නැහැ, ඒක මුලින් කරන්න ඕන. ඒ වගේම public ඇතුළේ index.html තියෙනවද, DB_URL දාලා save කරලාද කියලත් deploy කරන්න කලින් බලන්න.
+
+
+
+
+
+
+
+
+
+2. firebase login
+Browser එකක් open වෙනවා. Firebase project එක හදපු Google account එකෙන් login වෙලා Allow ඔබන්න.
+Terminal එකේ “Success! Logged in as ...” කියලා පෙන්නනවා.
+3. mkdir led-app && cd led-app
+mkdir led-app: led-app නමින් අලුත් folder එකක් හදනවා.
+cd led-app: ඒ folder එක ඇතුළට යනවා.
+&& කියන්නේ "පළවෙනි එක සාර්ථක වුණොත් දෙවැන්න කරන්න".
+Windows PowerShell එකේ && වැඩ නැත්නම් එකින් එක type කරන්න:
+  mkdir led-app
+  cd led-app
+4. firebase init hosting
+
+මේ command එක ඇතුළේ ප්‍රශ්න කීපයක් අහනවා. Arrow keys වලින් තෝරලා Enter ඔබන්න:
+
+ප්‍රශ්නය	උත්තරය
+Are you ready to proceed?	Y
+Please select an option	Use an existing project
+Select a default Firebase project	ඔයාගේ project එක තෝරන්න
+What do you want to use as your public directory?	public (Enter ඔබන්න)
+Configure as a single-page app?	N
+Set up automatic builds with GitHub?	N
+File public/index.html already exists. Overwrite?	N
+
+ඊට පස්සේ led-app folder එක ඇතුළේ public folder එකක් හැදෙනවා.
+
+5. HTML file එක දාලා deploy කරන්න
+esp32_controller.html file එක led-app/public/ ඇතුළට copy කරලා නම index.html කරන්න (කලින් තිබුණු index.html එක replace කරන්න).
+Terminal එකේ (තාමත් led-app folder එක ඇතුළේ):
+   firebase deploy --only hosting
+අන්තිමට මෙහෙම පෙන්නනවා:
+   Hosting URL: https://ඔයාගේ-project.web.app
+
+ඒ link එක browser එකේ open කරන්න, ඔයාගේ web app එක එතන තියෙනවා.
+
+පස්සේ වෙනස් කරන්න ඕන නම්
+
+HTML file එක වෙනස් කළාම public/index.html එකට ආයෙ copy කරලා, led-app folder එක ඇතුළේ firebase deploy --only hosting ආයෙ run කරන්න.
+
+Error ආවොත්
+'firebase' is not recognized: terminal එක වහලා ආයෙ open කරන්න, නැත්නම් npm install -g firebase-tools එක හරියට වුණාද බලන්න.
+npm: command not found: Node.js install වෙලා නැහැ.
+Login වෙන්න බැරි නම්: firebase login --no-localhost try කරන්න.
